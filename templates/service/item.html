@@ -1,0 +1,53 @@
+{% extends 'service/index.html' %}
+
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'service/css/item.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <title>{{item.name | truncatewords_html:2}}</title>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="content__cards">
+
+        <div class="content__card__body">
+            <div class="content__card__img">
+                <img src="{{item.img_url}}" alt="">
+            </div>
+            <div class="content__card__text">
+                <h2> {{item.name}} </h2>
+                <p class = "description"> {{ item.description}} </p>
+                <p class = "price"> Цена: {{ item.price }} {{item.currency}}</p>
+                <button class="content__card__btn">Купить</button>
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}
+
+
+{% block js_scripts %}
+
+    <script>
+
+        document.querySelector('.content__card__btn').addEventListener('click' , (e) => {
+            e.preventDefault()
+
+            fetch(`http://127.0.0.1:8000/buy/{{item.id}}`)
+                .then(res => {return res.json()})
+                .then(res => document.location.href=res.url)
+
+        })
+
+    </script>
+
+{% endblock %}
