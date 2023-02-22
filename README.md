@@ -1,3 +1,5 @@
+#Проект можно посмотреть по ссылке: http://sdfy1.pythonanywhere.com/#
+
 _Установка зависимостей_
 ```python
 pip install -r requirements.txt
