@@ -1,6 +1,6 @@
 _Установка зависимостей_
 ```python
-pip install -r requirements.t
+pip install -r requirements.txt
 ```
 
 _Выполнение миграций_
