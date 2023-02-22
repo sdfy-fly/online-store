@@ -1,4 +1,5 @@
-#Проект можно посмотреть по ссылке: http://sdfy1.pythonanywhere.com/#
+# Проект можно посмотреть по ссылке: http://sdfy1.pythonanywhere.com/
+
 
 _Установка зависимостей_
 ```python
