@@ -1,12 +1,20 @@
 _Установка зависимостей_
-<pip install -r requirements.txt>
+```python
+pip install -r requirements.tx
+```
 
 _Выполнение миграций_
-<python manage.py makemigrations>
-<python manage.py migrate>
+```python
+python manage.py makemigrations
+python manage.py migrate
+```
 
 _Создание супер пользователя_
-<python manage.py createsuperuser>
+```python
+python manage.py createsuperuser
+```
 
 _Запуск проекта_
-<python manage.py runserver>
+```python
+python manage.py runserver
+```
