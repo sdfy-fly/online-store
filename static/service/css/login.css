@@ -1,0 +1,26 @@
+.message__text
+{
+    font-family: 'SourceRegular'; 
+    font-size: 18px;
+    color : green;
+    text-align: center;
+}
+
+.link__register
+{
+    font-size: 18px;
+    font-family: "SourceRegular";
+    color : #1D1D1F;
+    text-decoration: none;
+}
+
+.link__register:hover
+{
+    text-decoration: underline #1D1D1F;
+}
+
+.cont__link__register
+{
+    text-align: center;
+    padding-top: 20px;
+}

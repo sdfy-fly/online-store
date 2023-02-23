@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Item(models.Model):
 
@@ -14,3 +15,10 @@ class Item(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+
+class Order(models.Model):
+
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    item = models.ForeignKey(Item,on_delete=models.CASCADE)
+

@@ -26,7 +26,12 @@
                 <h2> {{item.name}} </h2>
                 <p class = "description"> {{ item.description}} </p>
                 <p class = "price"> Цена: {{ item.price }} {{item.currency}}</p>
-                <button class="content__card__btn">Купить</button>
+                
+                <div class="content__card__buttons">
+                    <button class="content__card__btn btn__buy">Купить</button>
+                    <button class="content__card__btn btn__order">В корзину</button>
+                </div>
+
             </div>
         </div>
         
@@ -39,13 +44,18 @@
 
     <script>
 
-        document.querySelector('.content__card__btn').addEventListener('click' , (e) => {
+        document.querySelector('.btn__buy').addEventListener('click' , (e) => {
             e.preventDefault()
 
             fetch(`http://127.0.0.1:8000/buy/{{item.id}}`)
                 .then(res => {return res.json()})
                 .then(res => document.location.href=res.url)
 
+        })
+
+        document.querySelector('.btn__order').addEventListener('click' , (e) => {
+            e.preventDefault()
+            fetch(`http://127.0.0.1:8000/addItemToOrder/{{item.id}}`)  
         })
 
     </script>

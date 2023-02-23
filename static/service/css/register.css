@@ -1,0 +1,85 @@
+
+.cardForm h1
+{
+    display: flex;
+    align-items: center;
+}
+
+.main_cards h1,p
+{
+    font-family: "SourceRegular";
+    font-size: 18px;
+    color : #1D1D1F;
+}
+
+.main_cards h1
+{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 26px;
+}
+
+.form p
+{
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    flex-direction: column;
+
+}
+
+.form
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    padding: 20px; 
+    border-radius: 20px;  
+    box-shadow: 0 4px 16px #ccc; 
+    margin: 0 auto;
+}
+
+.form_button {
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px;
+
+    font-family: "SourceRegular";
+    font-size: 16px;
+    color : #1D1D1F;
+
+    letter-spacing: 1px;
+    background-color: #5791d2; 
+    outline: none;  
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+label
+{
+    padding-bottom: 5px;
+}
+
+input , select , textarea
+{
+    padding: 5px; 
+    font-family: "SourceRegular";
+    font-size: 16px;
+    color : #1D1D1F;
+    border: 2px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+
+    width: 100%;
+}
+
+.form__h1
+{
+    text-align: center;
+    font-family: "SourceRegular";
+    font-size: 24px;
+    padding-bottom: 10px;
+}

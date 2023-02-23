@@ -1,0 +1,42 @@
+{% extends 'service/index.html' %}
+{% load static %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'service/css/register.css' %}">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form_card">
+
+    <h1 class="form__h1">Регистация</h1>
+
+    <form method="post" class="form">
+
+        {% for message in messages %}
+            <p style="color: red">{{ message }}</p>
+        {% endfor %}
+
+        {% csrf_token %}
+        
+        <p>
+            <label for="username" class="username" > Your email or username </label>
+            <input name="username" required type="text" placeholder="Type your login"/>
+        </p>
+        <p>
+            <label for="password" class="password"> Your password </label>
+            <input name="password" required type="password" placeholder="Type your password"/>
+        </p>
+
+        <button type="submit" class="form_button">Зарегистрироваться</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

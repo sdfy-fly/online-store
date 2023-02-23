@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block links %}
+    <link rel="stylesheet" href="{% static 'service/css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    {% endblock %}
+
+    {% block title %}
+    <title>Main</title>
+    {% endblock %}
+
+</head>
+<body>
+    <style>
+
+        .content__card__buttons {text-align: center; margin-top: 3%;}
+    </style>
+    <div class="content">
+
+        {% block content %}
+        {% if items %}
+            <div class="content__cards">
+                {% for order in items %}
+                <div class="content__card__body">
+                    <div class="content__card__img">
+                        <img src="{{order.item.img_url}}" alt="">
+                    </div>
+                    <div class="content__card__text">
+                        <h2> {{order.item.name}} </h2>
+                        <p> Цена: {{ order.item.price }} {{item.currency}}</p>
+                        <a href="{{ order.item.get_absolute_url }}">Подробнее...</a>
+                    </div>
+                </div>
+                {% endfor %}
+     
+
+            </div>
+
+            <div class="content__card__buttons">
+                <button class="content__card__btn btn__buy">Купить</button>
+                <button class="content__card__btn btn__clearOrder">Очистить корзину</button>
+            </div>
+        
+        {% else %}
+            <p class = "content__card__text">В корзине пока пусто</p>
+        {% endif %}
+
+        {% endblock %}
+    </div>
+
+    {% block js_scripts %}
+
+    <script>
+
+        document.querySelector('.btn__buy').addEventListener('click' , (e) => {
+            e.preventDefault()
+
+            fetch(`http://127.0.0.1:8000/paymentOrder`)
+                .then(res => {return res.json()})
+                .then(res => document.location.href=res.url)
+
+        })
+
+        document.querySelector('.btn__clearOrder').addEventListener('click' , (e) => {
+            e.preventDefault()
+            fetch(`http://127.0.0.1:8000/clear-order`)  
+        })
+
+    </script>
+
+    {% endblock %}
+
+</body>
+</html>
